@@ -1,5 +1,6 @@
 package com.example.week3cicd;
 
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ public class ProductController {
     }
 
     @PostMapping("/addProduct")
-    public Product addProduct(@RequestBody Product myProduct){
+    public Product addProduct(@Valid @RequestBody Product myProduct){
         mylist.add(myProduct);
         return myProduct;
     }
