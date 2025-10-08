@@ -12,4 +12,11 @@ public class ProductController {
     public String hello(){
         return "hello";
     }
+
+    @GetMapping("/getProduct")
+    public Product getProduct(){
+        Product myProduct = new Product("Tv", 4909);
+        return myProduct;
+    }
+
 }
