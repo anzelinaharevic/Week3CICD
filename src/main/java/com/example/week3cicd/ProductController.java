@@ -1,21 +1,29 @@
 package com.example.week3cicd;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RequestMapping("/product")
 @RestController
 public class ProductController {
+    List<Product> mylist = new ArrayList<>();
 
     @GetMapping("/hello")
     public String hello(){
         return "hello";
     }
 
-    @GetMapping("/getProduct")
-    public Product getProduct(){
+    @GetMapping("/getProducts")
+    public List<Product> getProduct(){
         Product myProduct = new Product("Tv", 4909);
+        return mylist;
+    }
+
+    @PostMapping("/addProduct")
+    public Product addProduct(@RequestBody Product myProduct){
+        mylist.add(myProduct);
         return myProduct;
     }
 
